@@ -9,7 +9,7 @@ It is assumed that you have installed Node.js, MongoDB.
 ##### Clone the repository.
 
 ```
-> git clone https://github.com/StephenGrider/ReduxSimpleStarter.git
+> git clone https://github.com/sajera/node-server-training.git
 > cd node-server-training
 ```
 ##### Download dependencies
