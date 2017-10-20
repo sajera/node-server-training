@@ -21,7 +21,7 @@ Download npm modules.
 
 #### Setup local
 
-Inside the project create directory for local BD.
+Inside the project create directory for local DB.
 ```
 > mkdir db
 ```
