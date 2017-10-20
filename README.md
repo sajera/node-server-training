@@ -4,7 +4,7 @@ Temporary repository. For training of using Node.js Server. Authorization based 
 
 ### Getting Started
 
-It is assumed that you have installed Node.js, MongoDB.
+It is assumed that you have installed Node.js and MongoDB.
 
 #### Clone the repository.
 
