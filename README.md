@@ -6,20 +6,25 @@ Temporary repository. For training of using Node.js Server. Authorization based 
 
 It is assumed that you have installed Node.js, MongoDB.
 
-##### Clone the repository.
+#### Clone the repository.
 
 ```
 > git clone https://github.com/sajera/node-server-training.git
 > cd node-server-training
 ```
-##### Download dependencies
+#### Download dependencies
 
 Download npm modules.
 ```
 > npm install
 ```
 
-##### Setup local
+#### Setup local
+
+Inside the project create directory for local BD.
+```
+> mkdir db
+```
 
 Run local MongoDB
 ```
