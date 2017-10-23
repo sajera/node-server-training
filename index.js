@@ -13,9 +13,22 @@ var Auth = require('./controllers/authentication.controller.js');
 
 // API setup Router (can be imported from another file)
 // setup helpers 
-// app.use( morgan('combined') );           // logger
-app.use( bodyParser.json({type: '*/*'}) );  // json parser each request
-app.use('/private', Auth.getUserByToken);   // part of url wich close all subs for authorization
+app.use(function ( request, response, next ) {  // prepare common headers
+    // Website you wish to allow to connect
+    response.setHeader('Access-Control-Allow-Origin', '*'/* 'http://localhost:8888' */);
+    // Request methods you wish to allow
+    response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    // Request headers you wish to allow
+    response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    response.setHeader('Access-Control-Allow-Credentials', true);    
+    // Pass to next layer of middleware
+    next();
+}); 
+app.use( morgan('combined') );                  // logger
+app.use( bodyParser.json({type: '*/*'}) );      // json parser each request
+app.use('/private', Auth.getUserByToken);       // part of url wich close all subs for authorization
 
 // setup Authentification 
 app.post('/signup', Auth.signup);
