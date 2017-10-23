@@ -57,7 +57,7 @@ passport.use( new StrategyLocal(optionLocal,
 function ( email, password, next ) {
     // 
     process.env.DEBUG&&
-    console.log('StrategyLocal handler:\n', email, password);
+    console.log('\n\t StrategyLocal handler:', email, password);
     // try to find user by ID in DB
     User.findOne({
         email: email,
@@ -143,7 +143,7 @@ module.exports = Auth = {
     signup: function signup ( request, response, next ) {
         // 
         process.env.DEBUG&&
-        console.log('signup:', request.body );
+        console.log('\n\t signup:', request.body );
         
         var email = request.body.email;
         var password = request.body.password;
@@ -195,7 +195,7 @@ module.exports = Auth = {
     signin: function signup ( request, response, next ) {
         // 
         process.env.DEBUG&&
-        console.log('signin:', request.body );
+        console.log('\n\t signin:', request.body );
         
         response.send({
             access_token: token(request.user, 2),
