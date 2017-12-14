@@ -54,14 +54,12 @@ app.post('/signin', Auth.getUserByCredential, Auth.signin);
 // setup ptivat
 
 // tests
-app.get('/private/data', function ( request, response, next ) {
+app.get('/private/self', function ( request, response, next ) {
     // 
     process.env.DEBUG&&
-    console.log('Request: "/private/data"');
+    console.log('Request: "/private/self"');
     
-    response.send({
-        user: request.user,
-    });
+    response.send( request.user );
 });
 
 // setup public
