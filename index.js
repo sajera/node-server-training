@@ -10,6 +10,7 @@ var cors = require('cors');
 
 // local dependencies
 var app = express();
+var log = require('./services/log.js');
 var Auth = require('./controllers/authentication.controller.js');
 
 // configuration
@@ -56,8 +57,7 @@ app.post('/signin', Auth.getUserByCredential, Auth.signin);
 // tests
 app.get('/private/self', function ( request, response, next ) {
     // 
-    process.env.DEBUG&&
-    console.log('Request: "/private/self"');
+    log('Request: "/private/self"');
     
     response.send( request.user );
 });
@@ -67,8 +67,7 @@ app.get('/private/self', function ( request, response, next ) {
 // tests
 app.get('/', function ( request, response, next ) {
     // 
-    process.env.DEBUG&&
-    console.log('Request: "/"');
+    log('Request: "/"');
     
     response.send({public: 'data'});
 });
@@ -77,14 +76,12 @@ app.get('/', function ( request, response, next ) {
 // DB setup
 var db = mongoose.connect('mongodb://localhost:27018/auth', { useMongoClient: true }, function () {
     //
-    process.env.DEBUG&&
-    console.log('MongoDB run mongodb://localhost:27018/auth');
+    log('MongoDB run mongodb://localhost:27018/auth');
 });
 
 var port = process.env.PORT || 3000;
 // Server setup
 var server = http.createServer(app).listen(port, function () {
     //
-    process.env.DEBUG&&
-    console.log('Server RUN at "localhost" port =>', port);
+    log('Server RUN //localhost:'+port);
 });
