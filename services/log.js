@@ -32,7 +32,7 @@ var itemStyle = chalk.dim;
 // var bgMagenta = chalk.bgMagenta;
 
 log.DEBUG = Boolean( (process.env||{}).DEBUG );
-log.SHORT = false;
+log.SHORT = true;
 log('debug mode was enabled', { DEBUG: log.DEBUG, SHORT: log.SHORT });
 
 /**
@@ -50,7 +50,7 @@ function log ( title, data ) {
     if ( !log.DEBUG ) return; // work only in debug mod
     console.log( prefixStyle('[DEBUG]:'), titleStyle(title) );
     switch ( is.typeof(data) ) {
-        case 'undefined':
+        case 'undefined': // without log 
         break;case 'object': for ( var key in data )
             console.log(itemHeaderStyle('-- '+key+':'), log.SHORT ? itemStyle(String(data[key])) : data[key] );
         break;case 'array': for ( var key = 0; key < data.length; key ++ )
