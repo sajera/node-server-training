@@ -4,7 +4,7 @@
   "description": "Training of using Node.js Server. Authorization based on tokens. Public and private middleware.",
   "main": "index.js",
   "scripts": {
-    "dev-db": " echo \"MongoDB instance for DEVELOPMENT on PORT: 27018\" && mongod --port 27018 --dbpath ./db",
+    "local-db": " echo \"MongoDB instance on localhost with PORT: 27017\" && mongod --config C:/MDB/test.cfg",
     "serve-dev": "SET PORT=8000&&SET DEBUG=true&&SET NODE_ENV=development&& nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
